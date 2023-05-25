@@ -1,0 +1,215 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+  font-family: 'Fredoka', sans-serif;
+}
+
+
+body {
+  background-color: #333;
+  color: white;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+.audio-player {
+  position: relative;
+  width: 32rem;
+  padding: 1rem;
+  /* height: 11.5rem; */
+  color: black;
+  background-color: aliceblue;
+  border-radius: 2rem;
+  -webkit-border-radius: 2rem;
+  -moz-border-radius: 2rem;
+  -ms-border-radius: 2rem;
+  -o-border-radius: 2rem;
+}
+
+.audio-cover {
+  position: absolute;
+  left: 0;
+  bottom: 50%;
+  
+  width: 10rem;
+  height: 10rem;
+  border: 3px solid gray;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+
+  background-size: cover;
+  background-color: lightsalmon;
+
+  animation-name: spin;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.audio-cover::after {
+  position: absolute;
+  left: 50%;
+  bottom:50%;
+  transform: translate(-50%, 50%);
+  -webkit-transform: translate(-50%, 50%);
+  -moz-transform: translate(-50%, 50%);
+  -ms-transform: translate(-50%, 50%);
+  -o-transform: translate(-50%, 50%);
+
+  width: 1.2rem;
+  height: 1.2rem;
+  
+  border: .8rem solid gray;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  
+  content: "";
+  background-color: aliceblue;
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid transparent;
+
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+
+  transition: border .35s ease-in-out;
+  -webkit-transition: border .35s ease-in-out;
+  -moz-transition: border .35s ease-in-out;
+  -ms-transition: border .35s ease-in-out;
+  -o-transition: border .35s ease-in-out;
+}
+
+button:hover {
+  border: 1px solid black;
+}
+
+button:active,
+.active {
+  background-color: orange;
+  box-shadow: 0 .1rem gray;
+}
+
+.audio-content {
+  margin-left: 6rem;
+  margin-right: 1rem;
+  height: 100%;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 1.2rem;
+}
+
+.audio-content header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  /* color: black; */
+}
+
+.audio-content header button {
+  height: 2rem;
+  width: 2rem;
+}
+
+.audio-volume-controls {
+  width: 30%;
+  text-align: right;
+}
+
+.audio-volume-controls-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.audio-volume-controls-container button {
+  margin-left: .2rem;
+  min-width: 30px;
+}
+
+.progressbar {
+  width: 100%;
+  height: .5rem;
+  background-color: #b8b7b7;
+  position: relative;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  outline: .1rem solid transparent;
+}
+
+.progressbar:hover {
+  outline: .1rem solid black;
+}
+
+.progressbar-overlay{
+  content: "";
+  position: absolute;
+  height: 100%;
+  background-color: orange;
+  border-radius: 0.5rem;
+}
+
+.audio-controls-container {
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+}
+
+.audio-controls-container button {
+  height: 5rem;
+  width: 5rem;
+}
+
+.timers {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hidden {
+  display: none;
+}
+
+.paused {
+  animation-play-state: paused;
+}
+
+.btn-lock {
+  pointer-events: none;
+  opacity: .3;
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, 50%) rotate(0deg);
+    -webkit-transform: translate(-50%, 50%) rotate(0deg);
+    -moz-transform: translate(-50%, 50%) rotate(0deg);
+    -ms-transform: translate(-50%, 50%) rotate(0deg);
+    -o-transform: translate(-50%, 50%) rotate(0deg);
+  }
+    to {
+      transform: translate(-50%, 50%) rotate(360deg);
+      -webkit-transform: translate(-50%, 50%) rotate(360deg);
+      -moz-transform: translate(-50%, 50%) rotate(360deg);
+      -ms-transform: translate(-50%, 50%) rotate(360deg);
+      -o-transform: translate(-50%, 50%) rotate(360deg);
+  }
+}
